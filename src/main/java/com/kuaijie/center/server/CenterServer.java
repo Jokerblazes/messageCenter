@@ -71,13 +71,7 @@ public class CenterServer {
 			bootstrap.childOption(ChannelOption.SO_KEEPALIVE, true);//维持链接的活跃，清除死链接
 			bootstrap.childOption(ChannelOption.TCP_NODELAY, true);//关闭延迟发送
 			ChannelFuture future = bootstrap.bind(8003).sync();
-//			try {
-//				client.connect(registionIp, registionPort);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
 			Runnable runnable = createRunnable(client,registionIp,registionPort);
-			//TODO BOSS线程组执行
 			bossGroup.execute(runnable);
 			future.channel().closeFuture().sync();
 		} catch (InterruptedException e) {

@@ -14,13 +14,10 @@ public class HeartBeatHandler extends SimpleChannelInboundHandler<Object>{
 	@Override
 	protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
 		Message message = (Message) msg;
-		System.out.println("heart:"+message);
 		byte cmd = message.getCmdType();
-		System.out.println("isHeartBeat:"+(cmd == MessageType.HEARTBEAT.value()));
 		if (cmd == MessageType.HEARTBEAT.value()) {
 			logger.info("心跳请求消息 {}",message);
 			buildHeartBeat(message);
-			System.out.println("HeartBeatMessage:"+message);
 			logger.info("心跳回复消息 {}",message);
 			ctx.writeAndFlush(message);
 		} else {

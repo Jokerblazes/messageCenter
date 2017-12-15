@@ -4,7 +4,9 @@ import com.joker.agreement.entity.Message;
 import io.netty.channel.ChannelHandlerContext;
 
 /**
+ * 请求处理抽象类
  * Created by joker on 2017/12/8.
+ * https://github.com/Jokerblazes/messageCenter.git
  */
 public abstract class Handler {
     protected Handler handler;
