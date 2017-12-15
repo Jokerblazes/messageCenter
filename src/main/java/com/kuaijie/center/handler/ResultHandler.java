@@ -24,7 +24,6 @@ public class ResultHandler extends Handler {
 
     public void processRequest(Message requestMessage, String uri, final ChannelHandlerContext ctx) {
         //请求的唯一标示id
-        //TODO 处理int数值过大
         int id = atomicInteger.incrementAndGet();
         //请求的全地址
         String totalUri = new String(requestMessage.getHead().getUrl());

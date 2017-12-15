@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: joker:serviceRegistration:5.9-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/joker/serviceRegistration/5.9-SNAPSHOT/serviceRegistration-5.9-20171215.132646-1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/joker/serviceRegistration/5.9-SNAPSHOT/serviceRegistration-5.9-20171215.132646-1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/joker/serviceRegistration/5.9-SNAPSHOT/serviceRegistration-5.9-20171215.132646-1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -40,7 +40,7 @@ public class CenterServer {
 		List<String> serviceNames = new ArrayList<String>();
 		serviceNames.add("order");
 		customerDTO.setServiceNames(serviceNames);
-		ProviderContainer.getInstance().initMap(serviceNames);
+//		ProviderContainer.getInstance().initMap(serviceNames);
 
 
 		ServerBootstrap bootstrap = new ServerBootstrap();
@@ -48,6 +48,7 @@ public class CenterServer {
 		EventLoopGroup bossGroup = new NioEventLoopGroup();
 		EventLoopGroup workGroup = new NioEventLoopGroup();
 		final Client client = new Client(ClientType.CUSTOMER.value(),customerDTO,workGroup,bossGroup);
+		client.initProviderMap(serviceNames);
 		try {
 			bootstrap.group(bossGroup,workGroup)
 					.channel(NioServerSocketChannel.class)
