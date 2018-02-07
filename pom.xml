@@ -55,7 +55,7 @@
         <dependency>
             <artifactId>serviceRegistration</artifactId>
             <groupId>joker</groupId>
-            <version>5.9-SNAPSHOT</version>
+            <version>6.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>io.reactivex</groupId>

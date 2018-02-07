@@ -4,10 +4,6 @@ package com.kuaijie.center.server.handler;
 
 import com.joker.agreement.entity.Message;
 import com.joker.agreement.entity.MessageType;
-import com.joker.registration.container.StorageContainer;
-import com.joker.registration.entity.MessageChannel;
-import com.joker.registration.entity.Storage;
-import com.joker.registration.runnable.MessageChannelDestroyer;
 import com.joker.registration.utils.Constent;
 import com.kuaijie.center.handler.Handler;
 import com.kuaijie.center.handler.ResultHandler;
@@ -47,7 +43,6 @@ public class ServiceHandler extends SimpleChannelInboundHandler<Object> {
 		super.channelActive(ctx);
 		Integer key = integer.incrementAndGet();
 		ctx.channel().attr(Constent.ATTACHMENT_KEY).set(key);
-		StorageContainer.getInstance().put(key,new Storage());
 	}
 
 	@Override
@@ -90,12 +85,13 @@ public class ServiceHandler extends SimpleChannelInboundHandler<Object> {
 		} else {
 			//处理请求并获取数据
 			handler.processRequest(reqMessage,"",ctx);
-			Integer key = (Integer) ctx.channel().attr(Constent.ATTACHMENT_KEY).get();
-			//MessageAction 的有界缓存
-			Storage<MessageChannel> storage = StorageContainer.getInstance().get(key);
-			MessageChannelDestroyer destroyer = new MessageChannelDestroyer(storage);
+//			Integer key = (Integer) ctx.channel().attr(Constent.ATTACHMENT_KEY).get();
 
-			ctx.executor().execute(destroyer);
+			//MessageAction 的有界缓存
+//			Storage<MessageChannel> storage = StorageContainer.getInstance().get(key);
+//			MessageChannelDestroyer destroyer = new MessageChannelDestroyer(storage);
+
+//			ctx.executor().execute(destroyer);
 		}
 		if (message != null)
 			ctx.writeAndFlush(message);
